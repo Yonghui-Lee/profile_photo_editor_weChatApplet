@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<!--总容器开始-->
+<view class="container">
+<view style='height:auto; width:90%; margin-bottom:10px'>
+  <image style='height:100px; width:100%' src='../img/s0.jpg' mode='aspectFit'></image> 
+    
+    <image style='height:450rpx; width:100%' src='../img/60.jpg' mode='aspectFit'></image>
+    
+</view>
+  
+  <view class='template'>点击校徽头像模板进行选择↓</view>
+  <!--包含九个校徽的容器开始-->
+  <view class='imgContainer ' >
+    <view class='wrap' bindtap='showChooseImg'>
+      <view class='imgWrap'>
+        <image src='{{imgUrl[0]}}' data-img='{{imgUrl[0]}}' class='schoolImg'></image>
+        <image src='{{imgUrl[1]}}' data-img='{{imgUrl[1]}}' class='schoolImg' style='margin-left:5px;margin-right:5px'></image>
+        <image src='{{imgUrl[2]}}' data-img='{{imgUrl[2]}}' class='schoolImg'></image>
+      </view>
+      <view class='imgWrap' style='margin-top:5px;margin-bottom:5px'>
+        <image src='{{imgUrl[3]}}' data-img='{{imgUrl[3]}}' class='schoolImg'></image>
+        <image src='{{imgUrl[4]}}' data-img='{{imgUrl[4]}}' class='schoolImg' style='margin-left:5px;margin-right:5px'></image>
+        <image src='{{imgUrl[5]}}' data-img='{{imgUrl[5]}}' class='schoolImg'></image>
+      </view>
+      <view class='imgWrap'>
+        <image src='{{imgUrl[6]}}' data-img='{{imgUrl[6]}}' class='schoolImg'></image>
+        <image src='{{imgUrl[7]}}' data-img='{{imgUrl[7]}}' class='schoolImg' style='margin-left:5px;margin-right:5px'></image>
+         <image src='{{imgUrl[8]}}' data-img='{{imgUrl[8]}}' class='schoolImg'></image> 
+      </view>
+    </view>
+    <!--包含九个校徽的容器结束-->
+  </view>
+  <!--包含九个校徽的容器结束-->
+
+  <!--从本地图库选择图片开始-->
+  <view wx:if='{{isShowChooseImg}}'>
+    <view id='ShowChooseImg'>
+      <button id='selectImg' size='mini' type='' bindtap='getLocalImg'>选择图片</button>
+      <button id='getHeadImg' size='mini' type='primary' bindtap='saveImg' data-save='{{tplImgSrc}}'>生成头像               </button>
+      <!-- <view wx-if="{{isShowSuccess}}">保存成功</view> -->
+      <view class='sscontainer' style=''>
+          <image src='{{tplImgSrc}}' mode='aspectFit' ></image>  
+        <view id='asd'>
+          <image src='{{backgroundImgSrc}}' mode='aspectFill'></image>
+        </view> 
+      </view>
+    </view>
+  </view>
+  <!--从本地图库选择图片结束-->
+
+  <!--滚动区域开始-->
+  <view class='checkBoxContainer' wx:if='{{isShowContainer}}'>
+    <movable-area id='checkBox'>
+      <image id='test' src='{{backgroundImgSrc}}'></image>
+    <!-- <movable-view id='box' direction='vertical' bindchange=''>
+    </movable-view> -->
+    </movable-area>
+  </view>
+  <!--滚动区域开始结束-->
+
+  <!--Canvas合成图片-->
+  <view class='canvasContainer' wx:if='{{isShowCanvas}}'>
+    <!-- <view>
+      <text>{{text1}}</text>
+      <text>{{text2}}</text>
+    </view> -->
+    <canvas width="170" height="170" style='width:170px; height:170px;' canvas-id="myCanvas" ></canvas>
+  </view> 
+  
+  <!--底部-->
+  <!-- <view class='bottomImg'> -->
+    <image src='../img/s1.jpg' mode='aspectFit' style='width:100%; height:200px'></image>
+      <!-- <image src='../img/bottomImg2.jpg'   style='width:100%'></image> -->
+  <!-- </view> -->
+<view>
+
+</view>
+
+</view>
+
